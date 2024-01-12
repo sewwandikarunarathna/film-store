@@ -1,0 +1,37 @@
+.heading{
+    color: black;
+    margin: 20px;
+    font-weight: bold;
+
+}
+.subHeading{
+  color: black;
+  margin: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+mat-card {
+    min-width: 300px;
+    margin: 2em auto;
+    min-height: auto;
+    background :#44444f;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+
+  }
+  .card{
+    flex: 0 0 calc(33.33% - 16px); // Set width for 3 cards in a row with gap
+    margin:5px 10px 16px 10px;
+  }
+
+.link{
+    color: white;
+}

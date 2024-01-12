@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Would You like to get a hint?</h1>
+    <h2>Click 'Yes' Button</h2>
+    <button class="yes-button" type="button" (click)="displayHint()" title="Click Yes" mat-flat-button>Yes</button>
+    <button class="color-button" type="button" [disabled]="isDisabled" (click)="changeTextColor()" title="Change the color of Film Store" mat-flat-button>Change Color</button>
+    
+    <span *ngIf="displayText">Hint : {{displayText}}</span>
+</div>

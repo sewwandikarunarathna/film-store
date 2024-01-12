@@ -1,0 +1,72 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button class="menu-button" (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Film Store</span>
+  <span class="example-spacer"></span>
+  <button routerLink="/main/favorites" mat-icon-button>
+    <mat-icon matBadgeColor="accent" matBadgeSize="small">favorite</mat-icon>
+  </button>
+
+  <button (click)="badgevisibility()" mat-icon-button>
+    <mat-icon
+      matBadgeColor="accent"
+      matBadge="15"
+      [matBadgeHidden]="badgevisible"
+      matBadgeSize="small"
+      >notifications</mat-icon
+    >
+  </button>
+  <button [matMenuTriggerFor]="profile" mat-icon-button>
+    <mat-icon matBadgeColor="accent" matBadgeSize="small"
+      >account_circle</mat-icon
+    >
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item>My Profile</button>
+    <button mat-menu-item>Favorites</button>
+    <button mat-menu-item>Settings</button>
+  </mat-menu>
+</mat-toolbar>
+<mat-drawer-container class="sidebar" autosize>
+  <mat-drawer class="sidebar-list" #drawer opened="true" mode="side">
+    <mat-nav-list>
+      <mat-list-item (click)="navigateTo('/main/home')">
+        <button mat-button>
+          <mat-icon>home</mat-icon>
+          Home
+        </button>
+      </mat-list-item>
+      <mat-list-item (click)="navigateTo('/main/films')">
+        <button mat-button>
+          <mat-icon>dashboard</mat-icon>
+          Dashboard
+        </button>
+      </mat-list-item>
+      <mat-list-item (click)="navigateTo('/main/comments')">
+        <button mat-button>
+          <mat-icon>speaker_notes</mat-icon>
+          Comments
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button>
+          <mat-icon>settings</mat-icon>
+          Settings
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button>
+          <mat-icon>help</mat-icon>
+          Help
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div role="main" style="text-align: center; min-height: 650px">
+      <!-- <app-film-list></app-film-list> -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

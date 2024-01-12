@@ -1,0 +1,16 @@
+<h1 class="heading">Most Popular Films</h1>
+<h3 class="subHeading">{{totalFilms | async}} films in your store</h3>
+<div class="cards">
+
+  <div *ngFor="let film of films">
+    <mat-card>
+      <mat-card-content>
+        <div class="card">
+  
+          <h2>{{ film.title }}</h2>
+          <a [routerLink]="['/main/films', film.id]" class="link">View details</a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

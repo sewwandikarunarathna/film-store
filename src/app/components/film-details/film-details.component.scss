@@ -1,0 +1,30 @@
+.heading{
+    color: black;
+    margin: 20px;
+    font-weight: bold;
+
+}
+mat-card {
+    max-width: 350px;
+    margin: 2em auto;
+    text-align: center;
+    min-height: auto;
+    background :#44444f;
+    border-radius: 15px;
+    margin-top: 25px;
+    position: relative;
+  }
+
+  .back-button{
+    float: right;
+    padding: 4px 10px;
+    margin: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+  }
+
+  .favorite-button{
+    font-size: 12px;
+    // display: flex;
+  }

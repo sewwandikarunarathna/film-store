@@ -1,0 +1,23 @@
+<h2 class="heading">Your Favorites</h2>
+
+<button class="clear-button" (click)="clearAllFavs()"  [disabled]="!favItems || favItems.length === 0" mat-flat-button>
+  Remove All Favorites
+</button>
+<div class="cards">
+  <div *ngFor="let favItem of favItems">
+    <mat-card>
+      <mat-card-content>
+        <div class="card">
+          <h2>{{ favItem.title }}</h2>
+          <a [routerLink]="['/main/films', favItem.id]" class="link">View details</a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="!favItems || favItems.length === 0">
+  <h3 class="heading">No Favorites</h3>
+</div>
+<button class="back-button" [routerLink]="['/main/films']" mat-flat-button>
+  Back to Films
+</button>
