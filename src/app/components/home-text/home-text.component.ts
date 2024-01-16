@@ -12,6 +12,7 @@ export class HomeTextComponent {
   @Output() textColorChange = new EventEmitter<string>();
 
   isDisabled: boolean = false;
+  
  displayHint () {
   this.displayText = "Go to the dashboard";
   this.displayTextChange.emit(this.displayText);

@@ -2,12 +2,22 @@
 <div *ngIf="film">
   <mat-card>
     <mat-card-content>
-      
       <h3>{{ film.title }}</h3>
-      <p appHighlightRating [number]="+film.rating">Rating: {{ film.rating }}</p>
+      <p appHighlightRating [number]="+film.rating">
+        Rating: {{ film.rating }}
+      </p>
       <p>Year: {{ film.year }}</p>
-      <button (click)="addToFavorites(film)" class="favorite-button" color="primary" mat-button><mat-icon>favorite</mat-icon> Add to Favorites</button>
+      <button
+        (click)="addToFavorites(film)"
+        class="favorite-button"
+        color="primary"
+        mat-button
+      >
+        <mat-icon>favorite</mat-icon> Add to Favorites
+      </button>
     </mat-card-content>
   </mat-card>
 </div>
-<button class="back-button" [routerLink]="['/main/films']" mat-flat-button>Back to Films</button>
+<button class="back-button" [routerLink]="['/main/films']" mat-flat-button>
+  Back to Films
+</button>

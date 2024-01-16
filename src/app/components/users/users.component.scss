@@ -1,0 +1,25 @@
+.heading{
+    color: black;
+    margin: 20px;
+    font-weight: bold;
+
+}
+
+.table{
+    width: 80%;
+    margin-top: 100px;
+}
+
+.filter-input{
+    width: 200px;
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    transform: translate(-40%, -80%);
+    margin-bottom: 20px;
+}
+
+mat-header-cell{
+    position: sticky;
+    font-size: large;
+}

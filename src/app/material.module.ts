@@ -5,9 +5,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import {MatToolbarModule} from "@angular/material/toolbar"
-import {MatMenuModule} from "@angular/material/menu"
-import {MatBadgeModule} from "@angular/material/badge"
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
     exports: [
@@ -20,6 +23,9 @@ import {MatBadgeModule} from "@angular/material/badge"
         MatToolbarModule,
         MatMenuModule,
         MatBadgeModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
     ]
 })
 

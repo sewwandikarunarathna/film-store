@@ -4,8 +4,8 @@ import { Comment } from '../../models/comment.model';
 
 export interface CommentState {
   comments: Comment[];
-  error: string;
-  status: string;
+  error?: string;
+  status?: string;
 //   status: 'pending' | 'loading' | 'error' | 'success';
 }
 

@@ -1,0 +1,82 @@
+<h1 class="heading">Users in FilmStore</h1>
+
+<div class="filter-input">
+    
+  <mat-form-field>
+    <input
+      matInput
+      color="primary"
+      (keyup)="applyFilter($event)"
+      placeholder="Search"
+    />
+  </mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <mat-table
+  class="table"
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+  >
+    <ng-container matColumnDef="name">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+        >Name</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by username"
+        >User Name</mat-header-cell
+      >
+      <mat-cell mat-cell *matCellDef="let element">{{
+        element.username
+      }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by email"
+        >Email</mat-header-cell
+      >
+      <mat-cell mat-cell *matCellDef="let element">
+        {{ element.email }}
+      </mat-cell>
+    </ng-container>
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="9999">
+          No data matching for your search
+        </td>
+      </tr>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+<!-- <div class="cards">
+    <div *ngFor="let user of users">
+      <mat-card>
+        <mat-card-content>
+          <div class="card">
+            <h2>{{ user.name }}</h2>
+            <a [routerLink]="['/main/users', user.id]" class="link"
+              >View details</a
+            >
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div> -->

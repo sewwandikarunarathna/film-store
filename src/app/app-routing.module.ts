@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FavoriteFilmsComponent } from './components/favorite-films/favorite-films.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { HomeTextComponent } from './components/home-text/home-text.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'home', component: HomeTextComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'comments', component: CommentsComponent },
+      { path: 'users', component: UsersComponent },
       { path: 'films', component: FilmListComponent },
       { path: 'films/:id', component: FilmDetailsComponent },
       { path: 'favorites', component: FavoriteFilmsComponent },

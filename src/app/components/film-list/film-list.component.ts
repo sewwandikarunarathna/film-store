@@ -9,15 +9,21 @@ import { FilmsService } from '../../services/films.service';
 })
 export class FilmListComponent implements OnInit {
   films: any[] = [];
+  displayedColumns: string[] = ['id', 'title', 'action'];
+  dataSource: any[] = [];
+  clickedRows = new Set<any>();
+
+  isTableDisplay: boolean = false;
   totalFilms = new Promise ((resolve, reject) => {
     setTimeout(()=>{
       resolve(this.films.length);
     }, 2000);
   })
-
+  
   constructor(private http: HttpClient, private filmsService: FilmsService,) {}
-
+  
   ngOnInit() {
+    this.dataSource = this.films;
     this.loadFilms();
   }
 
@@ -26,5 +32,9 @@ export class FilmListComponent implements OnInit {
       this.films = films;
       console.log(this.films);
     });
+  }
+
+  formatToTable(){
+    this.isTableDisplay = !this.isTableDisplay;
   }
 }

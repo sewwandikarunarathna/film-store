@@ -1,16 +1,66 @@
 <h1 class="heading">Most Popular Films</h1>
-<h3 class="subHeading">{{totalFilms | async}} films in your store</h3>
-<div class="cards">
-
+<h3 class="subHeading">{{ totalFilms | async }} films in your store</h3>
+<button
+  *ngIf="!isTableDisplay"
+  (click)="formatToTable()"
+  class="table-button"
+  color="primary"
+  mat-button
+>
+  <mat-icon>table</mat-icon> Tabular View
+</button>
+<button
+  *ngIf="isTableDisplay"
+  (click)="formatToTable()"
+  class="table-button"
+  color="primary"
+  mat-button
+>
+  <mat-icon>list</mat-icon> Normal View
+</button>
+<div class="cards" *ngIf="!isTableDisplay">
   <div *ngFor="let film of films">
     <mat-card>
       <mat-card-content>
         <div class="card">
-  
           <h2>{{ film.title }}</h2>
-          <a [routerLink]="['/main/films', film.id]" class="link">View details</a>
+          <a [routerLink]="['/main/films', film.id]" class="link"
+            >View details</a
+          >
         </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
+
+<table
+  *ngIf="isTableDisplay"
+  mat-table
+  [dataSource]="films"
+  class="mat-elevation-z8 table"
+>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <a [routerLink]="['/main/films', element.id]" class="link"
+        >View details</a
+      >
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    (click)="clickedRows.add(row)"
+    [class.row-is-clicked]="clickedRows.has(row)"
+    *matRowDef="let row; columns: displayedColumns"
+  ></tr>
+</table>

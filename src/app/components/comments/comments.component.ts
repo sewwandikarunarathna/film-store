@@ -3,6 +3,7 @@ import { selectAllComments } from '../../state/comments/comment.selectors';
 import { addComment, loadComments, removeComment } from '../../state/comments/comment.actions';
 import { Store } from '@ngrx/store';
 import { Comment } from '../../models/comment.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-comments',
@@ -10,10 +11,12 @@ import { Comment } from '../../models/comment.model';
   styleUrl: './comments.component.scss'
 })
 export class CommentsComponent {
-  // public allComments$ = this.store.select(selectAllComments);
-  public comment = '';
+  public comment: string = '';
+  // public allComments$: Observable<Comment[]> = this.store.select(selectAllComments);
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+
+  }
 
   ngOnInit() {
     this.store.dispatch(loadComments());

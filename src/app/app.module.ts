@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FilmListComponent } from './components/film-list/film-list.component';
 import { FilmDetailsComponent } from './components/film-details/film-details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -20,11 +20,14 @@ import { HomeComponent } from './components/home/home.component';
 import { FavoriteFilmsComponent } from './components/favorite-films/favorite-films.component';
 import { HighlightRatingDirective } from './directives/highlight-rating.directive';
 import { CommentsComponent } from './components/comments/comments.component';
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, provideState, provideStore } from '@ngrx/store';
 import { commentReducer } from './state/comments/comment.reducer';
 // import { CommentEffects } from './state/comments/comment.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { HomeTextComponent } from './components/home-text/home-text.component';
+import { loginInterceptor } from './interceptors/login.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { HomeTextComponent } from './components/home-text/home-text.component';
     HomeTextComponent,
     FavoriteFilmsComponent,
     HighlightRatingDirective,
-    CommentsComponent
+    CommentsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { HomeTextComponent } from './components/home-text/home-text.component';
     MaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ comments: commentReducer}),
     // StoreDevtoolsModule.instrument({
@@ -56,7 +61,9 @@ import { HomeTextComponent } from './components/home-text/home-text.component';
     // }),
     // EffectsModule.forRoot([CommentEffects]),
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptors([loginInterceptor, errorInterceptor])),
+provideStore(),
+provideState({name: 'comments', reducer: commentReducer})],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
