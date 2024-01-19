@@ -5,8 +5,8 @@
 
 }
 
-.table{
-    width: 80%;
+mat-table{
+    min-width: 50%;
     margin-top: 100px;
 }
 
@@ -22,4 +22,10 @@
 mat-header-cell{
     position: sticky;
     font-size: large;
+}
+
+.full-table{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 95%;
 }

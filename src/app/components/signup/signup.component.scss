@@ -9,15 +9,26 @@ mat-card {
     position: relative;
   }
   
+  mat-label{
+    color: white;
+  }
+  
   .header{
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
     margin: 20px;
-  padding-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  }
+
+  h3{
+    text-align: left;
+    margin-left: 20px;
   }
   .full-width {
     width: 90%;
+    height: auto;
   }
   
   .button-row {
@@ -36,14 +47,14 @@ mat-card {
   }
   
   .forget-password{
-    padding-left: 10px;
+    padding-left: 0px;
   }
   
   .emailInput{
-    padding-top: 15px;
+    padding: 0px;
     margin: 0;
   }
-  
+ 
   .contentBody {
     padding: 60px 1rem;
     display: block;
@@ -59,4 +70,15 @@ mat-card {
 
   .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
+  }
+
+  .remove-nickname-button{
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  label{
+    color: white;
   }

@@ -28,6 +28,9 @@ import { HomeTextComponent } from './components/home-text/home-text.component';
 import { loginInterceptor } from './interceptors/login.interceptor';
 import { errorInterceptor } from './interceptors/error.interceptor';
 import { UsersComponent } from './components/users/users.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NoificationComponent } from './components/noification/noification.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { UsersComponent } from './components/users/users.component';
     FilmListComponent,
     FilmDetailsComponent,
     LoginComponent,
+    SignupComponent,
     SidebarComponent,
     ToolbarComponent,
     DashboardComponent,
@@ -43,7 +47,9 @@ import { UsersComponent } from './components/users/users.component';
     FavoriteFilmsComponent,
     HighlightRatingDirective,
     CommentsComponent,
-    UsersComponent
+    UsersComponent,
+    MyProfileComponent,
+    NoificationComponent
   ],
   imports: [
     BrowserModule,

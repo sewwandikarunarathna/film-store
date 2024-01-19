@@ -1,0 +1,20 @@
+<div class="notification-content">
+  <h2>Notifications</h2>
+
+  <!-- value of Message observable can be displayed like this: -->
+  <!-- <div *ngIf="messages$ | async as message" class="small">
+    Received a {{ message.type }} message
+  </div> -->
+
+  <div *ngIf="success$ | async as success" class="success-content">
+    <span>Success Message:</span>
+    {{ success }}
+  </div>
+
+  <div *ngIf="warnings$ | async as warning" class="warn-content">
+    <span>Warning Message:</span>
+    {{ warning }}
+  </div>
+
+  <span *ngIf="!(messages$ | async)">No Notifications</span>
+</div>

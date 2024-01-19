@@ -1,0 +1,180 @@
+<mat-card>
+  <mat-card-content class="contentBody">
+    <div class="header">
+      <P>Signup </P>
+    </div>
+    <form (ngSubmit)="onRegister()" name="signupForm" [formGroup]="signupForm">
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            formControlName="firstName"
+            value="firstName.value"
+            matInput
+            placeholder="Enter first Name"
+            required
+          />
+          <mat-error
+            *ngIf="signupForm.controls['firstName'].hasError('required')"
+          >
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            formControlName="lastName"
+            value="lastName.value"
+            matInput
+            placeholder="Enter lastName"
+            required
+          />
+          <mat-error
+            *ngIf="signupForm.controls['lastName'].hasError('required')"
+          >
+            Last Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            value="email.value"
+            matInput
+            placeholder="Enter email address"
+            required
+          />
+          <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="signupForm.controls['email'].hasError('email')">
+            Email is invalid
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div formGroupName="address">
+        <h3>Address</h3>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Street</mat-label>
+            <input
+              formControlName="street"
+              value="street.value"
+              matInput
+              placeholder="Enter street"
+              required
+            />
+            <!-- <mat-error *ngIf="!signupForm.controls['email'].valid">
+                    Street is required
+                  </mat-error> -->
+          </mat-form-field>
+        </div>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>City</mat-label>
+            <input
+              formControlName="city"
+              value="city.value"
+              matInput
+              placeholder="Enter city"
+              required
+            />
+            <!-- <mat-error *ngIf="!signupForm.controls['email'].valid">
+                    City is required
+                  </mat-error>  -->
+          </mat-form-field>
+        </div>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input
+              formControlName="country"
+              value="country.value"
+              matInput
+              placeholder="Enter country"
+              required
+            />
+            <!-- <mat-error *ngIf="!address.controls['country'].valid">
+              Country is required
+            </mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div formArrayName="nickNames">
+        <h3>Nick Names</h3>
+        <mat-form-field
+          class="full-width"
+          appearance="outline"
+          *ngFor="let nickName of nickNames.controls; let i = index"
+        >
+          <!-- <div *ngFor="let nickName of nickNames.controls; let i=index"> -->
+          <label for="nickName-{{ i }}">Nick Name {{ i + 1 }}</label>
+          <button class="remove-nickname-button" mat-icon-button (click)="removeNickName(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <input
+            matInput
+            id="nickName-{{ i }}"
+            type="text"
+            [formControlName]="i"
+          />
+
+          <!-- </div> -->
+        </mat-form-field>
+        <button mat-button color="accent" type="button" (click)="addNickName()">
+          + Add another nick name
+        </button>
+      </div>
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error
+            *ngIf="signupForm.controls['password'].hasError('required')"
+          >
+            Password is required
+          </mat-error>
+          <mat-error
+            *ngIf="signupForm.controls['password'].hasError('minlength')"
+          >
+            Password must be at least 4 characters long.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!signupForm.valid"
+        class="login-button"
+        mat-flat-button
+        color="primary"
+      >
+        Signup
+      </button>
+    </form>
+
+    <div class="button-row">
+      <a class="text-link" class="aLink" routerLink="/login">Already have Account? Login</a>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,166 @@
+<mat-card>
+  <mat-card-content class="contentBody">
+    <div class="header">
+      <P>My Profile </P>
+    </div>
+    <form
+      (ngSubmit)="onRegister()"
+      name="profileForm"
+      [formGroup]="profileForm"
+    >
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            formControlName="firstName"
+            value="firstName.value"
+            matInput
+            placeholder="Enter first Name"
+            required
+          />
+          <mat-error *ngIf="!profileForm.controls['firstName'].valid">
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            formControlName="lastName"
+            value="lastName.value"
+            matInput
+            placeholder="Enter last Name"
+            required
+          />
+          <mat-error *ngIf="!profileForm.controls['lastName'].valid">
+            Last Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            value="email.value"
+            matInput
+            placeholder="Enter email address"
+            required
+          />
+          <mat-error *ngIf="!profileForm.controls['email'].valid">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div formGroupName="address">
+        <h3>Address</h3>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Street</mat-label>
+            <input
+              formControlName="street"
+              value="street.value"
+              matInput
+              placeholder="Enter street"
+              required
+            />
+            <!-- <mat-error *ngIf="!profileForm.controls['email'].valid">
+                    Email is required
+                  </mat-error> -->
+          </mat-form-field>
+        </div>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>City</mat-label>
+            <input
+              formControlName="city"
+              value="city.value"
+              matInput
+              placeholder="Enter city"
+              required
+            />
+            <!-- <mat-error *ngIf="!profileForm.controls['email'].valid">
+                    Email is required
+                  </mat-error>  -->
+          </mat-form-field>
+        </div>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input
+              formControlName="country"
+              value="country.value"
+              matInput
+              placeholder="Enter country"
+              required
+            />
+            <!-- <mat-error *ngIf="!profileForm.controls['country'].valid">
+                      Country is required
+                    </mat-error> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div formArrayName="nickNames">
+        <h3>Nick Names</h3>
+        <mat-form-field
+          class="full-width"
+          appearance="outline"
+          *ngFor="let nickName of nickNames.controls; let i = index"
+        >
+          <label for="nickName-{{ i }}">Nick Name {{i+1}}</label>
+          <button class="remove-nickname-button" mat-icon-button (click)="removeNickName(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+          <input
+            matInput
+            id="nickName-{{ i }}"
+            type="text"
+            [formControlName]="i"
+          />
+        </mat-form-field>
+        <button class="add-nick-name" mat-button color="accent" type="button" (click)="addNickName()">
+          + Add another nick name
+        </button>
+      </div>
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="!profileForm.controls['password'].valid">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="profileForm.errors?.['minlength']">
+            Password must be at least 4 characters long.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!profileForm.valid"
+        class="login-button"
+        mat-flat-button
+        color="primary"
+      >
+        Update Profile
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

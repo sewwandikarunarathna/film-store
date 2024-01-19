@@ -12,6 +12,9 @@ import { FavoriteFilmsComponent } from './components/favorite-films/favorite-fil
 import { CommentsComponent } from './components/comments/comments.component';
 import { HomeTextComponent } from './components/home-text/home-text.component';
 import { UsersComponent } from './components/users/users.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NoificationComponent } from './components/noification/noification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,6 +28,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'comments', component: CommentsComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'profile', component: MyProfileComponent },
+      { path: 'notifications', component: NoificationComponent },
       { path: 'films', component: FilmListComponent },
       { path: 'films/:id', component: FilmDetailsComponent },
       { path: 'favorites', component: FavoriteFilmsComponent },
@@ -33,6 +38,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
 ];
 @NgModule({

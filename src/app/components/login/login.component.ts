@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
 
@@ -31,5 +31,5 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.router.navigate(['main']);
   }
-
+  
 }

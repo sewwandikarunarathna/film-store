@@ -1,2 +1,11 @@
 <h1>Welcome to <span [style.color]="color">Film Store</span></h1>
 <app-home-text [(displayText)]="hint" [(textColor)]="color"></app-home-text>
+
+<div class="message-content">
+    <h2>Send Message</h2>
+    <div class="msg-buttons">
+
+        <button mat-flat-button color="accent" type="button" (click)="createSuccessMessage()">This website is useful</button>
+        <button mat-flat-button color="warn" type="button" (click)="createWarningMessage()">This website is not helpful</button>
+    </div>
+</div>

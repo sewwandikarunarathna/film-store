@@ -1,0 +1,25 @@
+.notification-content{
+    color: black;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+h2{
+    font-size: x-large;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.success-content{
+    color: rgb(80, 154, 7);
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.warn-content{
+    color: rgb(193, 84, 26);
+    font-size: larger;
+}

@@ -33,34 +33,37 @@
   </div>
 </div>
 
-<table
-  *ngIf="isTableDisplay"
-  mat-table
-  [dataSource]="films"
-  class="mat-elevation-z8 table"
->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.title }}</td>
-  </ng-container>
-  <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let element">
-      <a [routerLink]="['/main/films', element.id]" class="link"
-        >View details</a
-      >
-    </td>
-  </ng-container>
+<div class="full-table">
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr
-    mat-row
-    (click)="clickedRows.add(row)"
-    [class.row-is-clicked]="clickedRows.has(row)"
-    *matRowDef="let row; columns: displayedColumns"
-  ></tr>
-</table>
+  <table
+    *ngIf="isTableDisplay"
+    mat-table
+    [dataSource]="films"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/main/films', element.id]" class="link"
+          >View details</a
+        >
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="clickedRows.add(row)"
+      [class.row-is-clicked]="clickedRows.has(row)"
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
+</div>

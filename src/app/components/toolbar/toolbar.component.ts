@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent {
   badgevisible = false;
-  badgevisibility() {
+  openNotification() {
     this.badgevisible = true;
+    // this.messageService.open();
+    this.router.navigate(['/main/notifications']);
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private messageService: MessageService) {}
 
   navigateTo(route: string): void {
     this.router.navigate([route]);

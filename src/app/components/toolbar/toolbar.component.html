@@ -8,10 +8,10 @@
     <mat-icon matBadgeColor="accent" matBadgeSize="small">favorite</mat-icon>
   </button>
 
-  <button (click)="badgevisibility()" mat-icon-button>
+  <button (click)="openNotification()" mat-icon-button>
     <mat-icon
       matBadgeColor="accent"
-      matBadge="15"
+      matBadge="1"
       [matBadgeHidden]="badgevisible"
       matBadgeSize="small"
       >notifications</mat-icon
@@ -23,7 +23,7 @@
     >
   </button>
   <mat-menu #profile="matMenu">
-    <button mat-menu-item>My Profile</button>
+    <button mat-menu-item (click)="navigateTo('/main/profile')">My Profile</button>
     <button mat-menu-item>Favorites</button>
     <button mat-menu-item>Settings</button>
   </mat-menu>
@@ -51,7 +51,7 @@
       </mat-list-item>
       <mat-list-item (click)="navigateTo('/main/users')">
         <button mat-button>
-          <mat-icon>user</mat-icon>
+          <mat-icon>supervisor_account</mat-icon>
           Users
         </button>
       </mat-list-item>
@@ -76,3 +76,11 @@
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
+
+<!-- <mat-sidenav-container class="app-container">
+  <mat-sidenav #notificationSidenav mode="side" position="end">
+    tesitnh
+    <app-noification></app-noification>
+  </mat-sidenav>
+
+</mat-sidenav-container> -->
