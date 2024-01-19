@@ -1,27 +1,13 @@
-# MyAngularProject
+# Building Angular Application using Angular Concepts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+“Film Store” is a small Angular application which used Angular concepts and it is built using Angular Material. The data of films is stored in a json file and displayed the data in the dashboard.
 
-## Development server
+When clicking ‘View details’ link, the following UI is displaying.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In Users view, user data is coming from an API. (https://jsonplaceholder.typicode.com/users)
+Angular Material table <mat-table> is used to display Users data and filtering, pagination, sorting is applied to the table data.
 
-## Code scaffolding
+The app consists of login and signup form in addition to the dashboard. The forms are built using Reactive forms, FormGroup, FormArray with form validation.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Nested FormGroup is used for ‘address', and 'Nick names’ is made using FormArray, which can add more input fields for adding nick names.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
